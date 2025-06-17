@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Pengingat Tagihan FORTRESS™ (Client-Side)</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Pengingat Tagihan FORTRESS™</h1>
+            <div id="upload-container">
+                <p>Silakan pilih file `data_master.xlsx` Anda untuk memulai.</p>
+                <input type="file" id="file-input" accept=".xlsx, .xls">
+                <button id="clear-data-btn" class="btn btn-secondary">Bersihkan Data</button>
+            </div>
+            <div class="filters" id="filter-controls" style="display: none;">
+                <select id="filter-cabang">
+                    <option value="semua">Semua Cabang</option>
+                </select>
+                <input type="text" id="cari-pelanggan" placeholder="Cari Pelanggan...">
+                <select id="filter-kategori">
+                    <option value="semua">Semua Kategori</option>
+                    <option value="Belum Jatuh Tempo">Belum Jatuh Tempo</option>
+                    <option value="Konfirmasi Terima Barang">Konfirmasi Terima Barang</option>
+                    <option value="Akan Jatuh Tempo">Akan Jatuh Tempo</option>
+                    <option value="Jatuh Tempo">Jatuh Tempo</option>
+                </select>
+            </div>
+        </header>
+        <main>
+            <table id="tabel-tagihan">
+                <thead>
+                    <tr>
+                        <th>No Invoice</th>
+                        <th>Tanggal</th>
+                        <th>Jatuh Tempo</th>
+                        <th>Pelanggan</th>
+                        <th>Sisa Tagihan</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="6" style="text-align: center;">Silakan pilih file Excel di atas.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+    </div>
+</main>
+</div>
+
+<div id="lunas-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="modal-title">Pilih Invoice yang Lunas</h2>
+            <span class="modal-close">&times;</span>
+        </div>
+        <div class="modal-body" id="modal-invoice-list">
+            </div>
+        <div class="modal-footer">
+            <button id="proses-lunas-btn" class="btn btn-lunas">Proses & Kirim Pesan</button>
+        </div>
+    </div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
