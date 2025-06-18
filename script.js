@@ -309,8 +309,10 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('dataTagihanTerakhir', JSON.stringify(dataMaster));
         lunasModal.style.display = 'none';
         filterData();
-        const urlWA = `https://web.whatsapp.com/send?phone=${noWA}&text=${encodeURIComponent(pesan)}`;
-        window.open(urlWA, 'whatsapp_tab');
+        // const urlWA = `https://web.whatsapp.com/send?phone=${noWA}&text=${encodeURIComponent(pesan)}`;
+        // window.open(urlWA, 'whatsapp_tab');
+        window.location.href = `whatsapp://send?phone=${noWa}&text=${encodeURIComponent(pesan)}`;
+
     }
 
     function kirimPesanWA(namaPelanggan, kategori) {
